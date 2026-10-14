@@ -1,0 +1,206 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #FF6500;
+  --color-primary-light: #FFF1E8;
+  --color-dark: #111827;
+  --color-muted: #4B5563;
+  --color-subtle-border: #F1F1F1;
+  --font-sans: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-handwriting: 'Caveat', cursive, sans-serif;
+}
+
+@layer base {
+  :root {
+    --primary: #FF6500;
+    --primary-light: #FFF1E8;
+    --text-dark: #111827;
+    --text-muted: #4B5563;
+    --border-color: #F1F1F1;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+    background-color: #FFFFFF;
+    color: #111827;
+    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  #root {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    border: none;
+    text-align: left;
+  }
+}
+
+.font-handwriting {
+  font-family: 'Caveat', cursive, sans-serif;
+}
+
+/* Orbital keyframe animations */
+@keyframes orbit-spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit-spin-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes float-gentle-1 {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes float-gentle-2 {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+@keyframes sphere-pulse {
+  0%, 100% {
+    box-shadow: 0 0 35px rgba(255, 101, 0, 0.45), 0 0 70px rgba(255, 101, 0, 0.22), inset -8px -8px 22px rgba(180, 50, 0, 0.55), inset 8px 8px 22px rgba(255, 180, 120, 0.55);
+  }
+  50% {
+    box-shadow: 0 0 50px rgba(255, 101, 0, 0.6), 0 0 95px rgba(255, 101, 0, 0.32), inset -10px -10px 28px rgba(180, 50, 0, 0.65), inset 10px 10px 26px rgba(255, 200, 140, 0.65);
+  }
+}
+
+.animate-orbit-slow {
+  animation: orbit-spin-slow 60s linear infinite;
+}
+
+.animate-orbit-reverse {
+  animation: orbit-spin-reverse 75s linear infinite;
+}
+
+.animate-float-1 {
+  animation: float-gentle-1 5s ease-in-out infinite;
+}
+
+.animate-float-2 {
+  animation: float-gentle-2 6s ease-in-out infinite;
+}
+
+.sphere-glow {
+  animation: sphere-pulse 4s ease-in-out infinite;
+}
+
+/* Responsive orbital radii for the 4 modules */
+:root {
+  --orbit-rx: 155px;
+  --orbit-ry: 95px;
+}
+@media (min-width: 640px) {
+  :root {
+    --orbit-rx: 210px;
+    --orbit-ry: 125px;
+  }
+}
+@media (min-width: 1024px) {
+  :root {
+    --orbit-rx: 260px;
+    --orbit-ry: 145px;
+  }
+}
+@media (min-width: 1280px) {
+  :root {
+    --orbit-rx: 280px;
+    --orbit-ry: 155px;
+  }
+}
+
+/* Celestial Elliptical Orbit Keyframes (Revolving around central sphere like moons) */
+@keyframes celestial-orbit {
+  0% { transform: translate(calc(var(--orbit-rx) * -0.7071 - 50%), calc(var(--orbit-ry) * -0.7071 - 50%)); }
+  4.17% { transform: translate(calc(var(--orbit-rx) * -0.5000 - 50%), calc(var(--orbit-ry) * -0.8660 - 50%)); }
+  8.33% { transform: translate(calc(var(--orbit-rx) * -0.2588 - 50%), calc(var(--orbit-ry) * -0.9659 - 50%)); }
+  12.5% { transform: translate(calc(var(--orbit-rx) * 0.0000 - 50%), calc(var(--orbit-ry) * -1.0000 - 50%)); }
+  16.67% { transform: translate(calc(var(--orbit-rx) * 0.2588 - 50%), calc(var(--orbit-ry) * -0.9659 - 50%)); }
+  20.83% { transform: translate(calc(var(--orbit-rx) * 0.5000 - 50%), calc(var(--orbit-ry) * -0.8660 - 50%)); }
+  25% { transform: translate(calc(var(--orbit-rx) * 0.7071 - 50%), calc(var(--orbit-ry) * -0.7071 - 50%)); }
+  29.17% { transform: translate(calc(var(--orbit-rx) * 0.8660 - 50%), calc(var(--orbit-ry) * -0.5000 - 50%)); }
+  33.33% { transform: translate(calc(var(--orbit-rx) * 0.9659 - 50%), calc(var(--orbit-ry) * -0.2588 - 50%)); }
+  37.5% { transform: translate(calc(var(--orbit-rx) * 1.0000 - 50%), calc(var(--orbit-ry) * -0.0000 - 50%)); }
+  41.67% { transform: translate(calc(var(--orbit-rx) * 0.9659 - 50%), calc(var(--orbit-ry) * 0.2588 - 50%)); }
+  45.83% { transform: translate(calc(var(--orbit-rx) * 0.8660 - 50%), calc(var(--orbit-ry) * 0.5000 - 50%)); }
+  50% { transform: translate(calc(var(--orbit-rx) * 0.7071 - 50%), calc(var(--orbit-ry) * 0.7071 - 50%)); }
+  54.17% { transform: translate(calc(var(--orbit-rx) * 0.5000 - 50%), calc(var(--orbit-ry) * 0.8660 - 50%)); }
+  58.33% { transform: translate(calc(var(--orbit-rx) * 0.2588 - 50%), calc(var(--orbit-ry) * 0.9659 - 50%)); }
+  62.5% { transform: translate(calc(var(--orbit-rx) * 0.0000 - 50%), calc(var(--orbit-ry) * 1.0000 - 50%)); }
+  66.67% { transform: translate(calc(var(--orbit-rx) * -0.2588 - 50%), calc(var(--orbit-ry) * 0.9659 - 50%)); }
+  70.83% { transform: translate(calc(var(--orbit-rx) * -0.5000 - 50%), calc(var(--orbit-ry) * 0.8660 - 50%)); }
+  75% { transform: translate(calc(var(--orbit-rx) * -0.7071 - 50%), calc(var(--orbit-ry) * 0.7071 - 50%)); }
+  79.17% { transform: translate(calc(var(--orbit-rx) * -0.8660 - 50%), calc(var(--orbit-ry) * 0.5000 - 50%)); }
+  83.33% { transform: translate(calc(var(--orbit-rx) * -0.9659 - 50%), calc(var(--orbit-ry) * 0.2588 - 50%)); }
+  87.5% { transform: translate(calc(var(--orbit-rx) * -1.0000 - 50%), calc(var(--orbit-ry) * 0.0000 - 50%)); }
+  91.67% { transform: translate(calc(var(--orbit-rx) * -0.9659 - 50%), calc(var(--orbit-ry) * -0.2588 - 50%)); }
+  95.83% { transform: translate(calc(var(--orbit-rx) * -0.8660 - 50%), calc(var(--orbit-ry) * -0.5000 - 50%)); }
+  100% { transform: translate(calc(var(--orbit-rx) * -0.7071 - 50%), calc(var(--orbit-ry) * -0.7071 - 50%)); }
+}
+
+.orbit-active {
+  animation: celestial-orbit 28s linear infinite;
+  will-change: transform;
+}
+
+/* Hovering the orbit stage freezes all 4 cards in place seamlessly */
+.orbit-stage:hover .orbit-active {
+  animation-play-state: paused;
+}
+
+/* Manual paused state */
+.orbit-paused .orbit-active {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orbit-active {
+    animation: none !important;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FAFAFA;
+}
+::-webkit-scrollbar-thumb {
+  background: #E5E7EB;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D1D5DB;
+}

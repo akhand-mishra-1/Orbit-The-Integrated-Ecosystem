@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 70">
+<g fill="none" stroke="#FF6500" stroke-width="5" stroke-linecap="round">
+<ellipse cx="42" cy="30" rx="27" ry="11" transform="rotate(-35 42 30)"/>
+<ellipse cx="42" cy="30" rx="10" ry="29" transform="rotate(42 42 30)"/>
+</g><circle cx="42" cy="30" r="4" fill="#FF6500"/>
+<text x="82" y="35" font-family="Inter,Arial,sans-serif" font-size="28" font-weight="700" fill="#111827">Orbit</text>
+<text x="82" y="55" font-family="Inter,Arial,sans-serif" font-size="10" fill="#4B5563">The Integrated Campus Ecosystem</text>
+</svg>

@@ -1,0 +1,9 @@
+{
+  "name": "frontend-root",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix erp-frontend run dev",
+    "build": "npm --prefix erp-frontend run build",
+    "preview": "npm --prefix erp-frontend run preview"
+  }
+}
